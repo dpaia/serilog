@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "benchmark_type": "codegen",
+  "language": "csharp",
+  "dotnet_sdk": "9.0",
+  "test_project": "API.Tests/API.Tests.csproj",
+  "test_framework_flag": "--framework net9.0",
+  "test_logger": "trx;LogFileName=results.trx",
+  "expected": {
+    "fail_to_pass": ["Serilog.Tests.Formatting.Json.JsonFormatterTestsMethodCount.TestCountMethods"],
+    "pass_to_pass": ["Serilog.Tests.Formatting.Json.JsonFormatterTests"],
+    "fail_to_fail": ["API.Tests.Extensions.SeriesFilterTests.HasReleaseYear_IsInLast_Works", "API.Tests.Extensions.SeriesFilterTests.HasReleaseYear_IsNotInLast_Works"],
+    "fail_to_fail_strict": true
+  },
+  "patch": {
+    "source_patterns": ["test/Serilog.Tests/Formatting/Json/JsonFormatterTests.cs"],
+    "test_patterns": ["test/Serilog.Tests/Formatting/Json/JsonFormatterTestsMethodCount.cs"]
+  }
+}
